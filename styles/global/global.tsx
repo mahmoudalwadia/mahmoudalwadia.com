@@ -1,11 +1,11 @@
 import { css, Global } from '@emotion/react';
-import { reset } from './reset';
+import normalize from './normalize';
 import { fontFace } from './font';
 
 export const globalStyles = (
   <Global
     styles={css`
-      ${reset},
+      ${normalize},
       ${fontFace},
       * {
         font-family: Inter, sans-serif;
