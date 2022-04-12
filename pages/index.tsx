@@ -1,25 +1,17 @@
 import type { NextPage } from 'next';
-import mediaQueries from '@styles/media';
-import styled from '@emotion/styled';
 import Layout from '@components/Layout';
+import Hero from '@components/Hero';
+import SocialLinks from '@components/SocialLinks';
+import BlogPostsList from '@components/BlogPostsList';
 
-const Text = styled.p`
-  background: #000;
-  color: red;
-  ${mediaQueries.md} {
-    color: blue;
-  }
-  ${mediaQueries.lg} {
-    color: yellow;
-  }
-`;
-
-const Home: NextPage = () => {
+const HomePage: NextPage = () => {
   return (
     <Layout>
-      <Text>Hello World!</Text>
+      <Hero />
+      <SocialLinks />
+      <BlogPostsList />
     </Layout>
   );
 };
 
-export default Home;
+export default HomePage;

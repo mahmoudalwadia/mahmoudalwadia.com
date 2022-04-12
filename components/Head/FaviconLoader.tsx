@@ -24,7 +24,6 @@ const FaviconLoader = () => (
       color="#5bbad5"
     />
     <meta name="msapplication-TileColor" content="#da532c" />
-    <meta name="theme-color" content="#ffffff" />
   </>
 );
 

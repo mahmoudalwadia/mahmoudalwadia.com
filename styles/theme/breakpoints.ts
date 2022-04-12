@@ -15,3 +15,9 @@ export const breakpoints = {
   // > lg & <xl: big landscape tablets, laptops, and desktops
   [BPKey.XL]: 1200,
 };
+
+export const toEm = (size: number) => size / 16 + 'em';
+
+export const parsedBreakpoints = Object.values(breakpoints).map((size) =>
+  toEm(size)
+);

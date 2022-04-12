@@ -1,5 +1,4 @@
-import theme from './theme';
-import { BPKey } from './theme/breakpoints';
+import { BPKey, toEm, breakpoints } from './theme/breakpoints';
 
 /**
  * Media Queries (Mobile first) with the basic Bootstrap breakpoints.
@@ -14,10 +13,10 @@ type MediaQuery = {
   [key in BPKey]: string;
 };
 
-const mediaQueries = Object.entries(theme.breakpoints).reduce(
+const mediaQueries = Object.entries(breakpoints).reduce(
   (acc, [label, size]) => ({
     ...acc,
-    [label]: `@media (min-width: ${size}px)`,
+    [label]: `@media (min-width: ${toEm(size)})`,
   }),
   {} as MediaQuery
 );
