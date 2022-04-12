@@ -69,7 +69,7 @@ const BlogPostLink = styled.a`
   }
 `;
 
-const Title = styled(Typography.h2)`
+const Title = styled(Typography.h4)`
   transition: color 0.3s ease-in-out;
 `;
 
