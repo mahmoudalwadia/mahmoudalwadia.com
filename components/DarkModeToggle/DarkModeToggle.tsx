@@ -30,25 +30,13 @@ export const DarkModeToggle: React.FC = () => {
       aria-label={accessibilityInfo}
       title={accessibilityInfo}
     >
+      <input type="checkbox" checked={isDark} readOnly />
       <SunMoon isDark={isDark} />
     </IconWrapper>
   );
 };
 
 // Many thanks to: https://codepen.io/aaroniker/pen/KGpXZo
-const IconWrapper = styled.button<{ isDark: boolean }>`
-  padding: 2px;
-  opacity: 0.5;
-  transform: scale(0.7);
-  &:hover {
-    opacity: 1;
-  }
-  ${mediaQueries.md} {
-    transform: scale(0.8);
-    display: flex;
-  }
-`;
-
 const MoonMusk = (p: { theme: ThemeType }) => css`
   box-shadow: inset 32px -32px 0 0 ${p.theme.colors.primary};
   transform: scale(0.5) rotate(0deg);
@@ -60,6 +48,28 @@ const MoonMusk = (p: { theme: ThemeType }) => css`
   &:after {
     transform: scale(1.5);
     transition: transform 0.5s ease 0.15s;
+  }
+`;
+
+const IconWrapper = styled.label<{ isDark: boolean }>`
+  padding: 2px;
+  opacity: 0.5;
+  transform: scale(0.7);
+  cursor: pointer;
+  &:hover {
+    opacity: 1;
+  }
+
+  input {
+    display: none;
+    &:checked + div {
+      ${MoonMusk}
+    }
+  }
+
+  ${mediaQueries.md} {
+    transform: scale(0.8);
+    display: flex;
   }
 `;
 
@@ -101,8 +111,6 @@ const SunMoon = styled.div<{ isDark: boolean }>`
     transform: scale(0);
     transition: all 0.3s ease;
   }
-
-  ${(p) => (p.isDark ? MoonMusk : '')}
 `;
 
 export default DarkModeToggle;
