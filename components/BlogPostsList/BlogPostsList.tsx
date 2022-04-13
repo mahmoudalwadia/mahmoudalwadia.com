@@ -59,13 +59,13 @@ const BlogPostLink = styled.a`
     margin-top: 0;
   }
 
-  &:hover h4,
-  &:focus h4 {
-    color: ${(p) => p.theme.colors.accent};
-  }
-
   ${mediaQueries.md} {
     margin-top: 32px;
+
+    &:hover h4,
+    &:focus h4 {
+      color: ${(p) => p.theme.colors.accent};
+    }
   }
 `;
 

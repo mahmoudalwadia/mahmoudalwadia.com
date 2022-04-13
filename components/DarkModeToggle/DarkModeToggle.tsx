@@ -4,88 +4,7 @@ import styled from '@emotion/styled';
 import { Theme } from '@styles/theme/theme';
 import translations from '@translations/main.json';
 import mediaQueries from '@styles/media';
-
-const IconWrapper = styled.button<{ isDark: boolean }>`
-  opacity: 0.5;
-  position: relative;
-  border-radius: 5px;
-  transform: scale(0.8);
-  width: 40px;
-  height: 25px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: opacity 0.3s ease;
-  &:hover {
-    opacity: 1;
-  }
-  ${mediaQueries.md} {
-    transform: scale(1);
-  }
-`;
-
-// This is based off a codepen! Much appreciated to: https://codepen.io/aaroniker/pen/KGpXZo
-const MoonOrSun = styled.div<{ isDark: boolean }>`
-  position: relative;
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  border: ${(p) => (p.isDark ? '4px' : '2px')} solid
-    ${(p) => p.theme.colors.primary};
-  background: ${(p) => p.theme.colors.primary};
-  transform: scale(${(p) => (p.isDark ? 0.55 : 1)});
-  transition: all 0.45s ease;
-  overflow: ${(p) => (p.isDark ? 'visible' : 'hidden')};
-
-  &::before {
-    content: '';
-    position: absolute;
-    right: -9px;
-    top: -9px;
-    height: 24px;
-    width: 24px;
-    border: 2px solid ${(p) => p.theme.colors.primary};
-    border-radius: 50%;
-    transform: translate(${(p) => (p.isDark ? '14px, -14px' : '0, 0')});
-    opacity: ${(p) => (p.isDark ? 0 : 1)};
-    transition: transform 0.45s ease;
-  }
-
-  &::after {
-    content: '';
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    margin: -4px 0 0 -4px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    box-shadow: 0 -23px 0 ${(p) => p.theme.colors.primary},
-      0 23px 0 ${(p) => p.theme.colors.primary},
-      23px 0 0 ${(p) => p.theme.colors.primary},
-      -23px 0 0 ${(p) => p.theme.colors.primary},
-      15px 15px 0 ${(p) => p.theme.colors.primary},
-      -15px 15px 0 ${(p) => p.theme.colors.primary},
-      15px -15px 0 ${(p) => p.theme.colors.primary},
-      -15px -15px 0 ${(p) => p.theme.colors.primary};
-    transform: scale(${(p) => (p.isDark ? 1 : 0)});
-    transition: all 0.35s ease;
-  }
-`;
-
-const MoonMask = styled.div<{ isDark: boolean }>`
-  position: absolute;
-  right: -1px;
-  top: -8px;
-  height: 24px;
-  width: 24px;
-  border-radius: 50%;
-  border: 0;
-  background: ${(p) => p.theme.colors.background};
-  transform: translate(${(p) => (p.isDark ? '14px, -14px' : '0, 0')});
-  opacity: ${(p) => (p.isDark ? 0 : 1)};
-  transition: ${(p) => p.theme.colorModeTransition}, transform 0.45s ease;
-`;
+import { css, Theme as ThemeType } from '@emotion/react';
 
 export const DarkModeToggle: React.FC = () => {
   const [colorMode, setColorMode] = useColorMode();
@@ -111,10 +30,79 @@ export const DarkModeToggle: React.FC = () => {
       aria-label={accessibilityInfo}
       title={accessibilityInfo}
     >
-      <MoonOrSun isDark={isDark} />
-      <MoonMask isDark={isDark} />
+      <SunMoon isDark={isDark} />
     </IconWrapper>
   );
 };
+
+// Many thanks to: https://codepen.io/aaroniker/pen/KGpXZo
+const IconWrapper = styled.button<{ isDark: boolean }>`
+  padding: 2px;
+  opacity: 0.5;
+  transform: scale(0.7);
+  &:hover {
+    opacity: 1;
+  }
+  ${mediaQueries.md} {
+    transform: scale(0.8);
+    display: flex;
+  }
+`;
+
+const MoonMusk = (p: { theme: ThemeType }) => css`
+  box-shadow: inset 32px -32px 0 0 ${p.theme.colors.primary};
+  transform: scale(0.5) rotate(0deg);
+  transition: transform 0.3s ease 0.1s, box-shadow 0.2s ease 0s;
+  &:before {
+    background: ${p.theme.colors.primary};
+    transition: background 0.3s ease 0.1s;
+  }
+  &:after {
+    transform: scale(1.5);
+    transition: transform 0.5s ease 0.15s;
+  }
+`;
+
+const SunMoon = styled.div<{ isDark: boolean }>`
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  position: relative;
+  box-shadow: inset 16px -16px 0 0 ${(p) => p.theme.colors.primary};
+  transform: scale(1) rotate(-2deg);
+  transition: box-shadow 0.5s ease 0s, transform 0.4s;
+  &:before {
+    content: '';
+    width: inherit;
+    height: inherit;
+    border-radius: inherit;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: ${(p) => p.theme.colorModeTransition};
+  }
+  &:after {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin: -4px 0 0 -4px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    box-shadow: 0 -23px 0 ${(p) => p.theme.colors.primary},
+      0 23px 0 ${(p) => p.theme.colors.primary},
+      23px 0 0 ${(p) => p.theme.colors.primary},
+      -23px 0 0 ${(p) => p.theme.colors.primary},
+      15px 15px 0 ${(p) => p.theme.colors.primary},
+      -15px 15px 0 ${(p) => p.theme.colors.primary},
+      15px -15px 0 ${(p) => p.theme.colors.primary},
+      -15px -15px 0 ${(p) => p.theme.colors.primary};
+    transform: scale(0);
+    transition: all 0.3s ease;
+  }
+
+  ${(p) => (p.isDark ? MoonMusk : '')}
+`;
 
 export default DarkModeToggle;
