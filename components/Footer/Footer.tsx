@@ -82,8 +82,6 @@ const FooterGradient = styled.div`
   z-index: 0;
   pointer-events: none;
   background: ${(p) => p.theme.colors.gradient};
-  transition: ${(p) => p.theme.colorModeTransition};
-
   ${mediaQueries.md} {
     height: 288px;
   }

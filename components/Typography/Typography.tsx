@@ -14,8 +14,11 @@ const commonStyles = (p: { theme: Theme }) => css`
   word-break: keep-all;
   color: ${p.theme.colors.primary};
   font-family: ${p.theme.fonts.inter};
-  transition: ${p.theme.colorModeTransition};
   margin: 0;
+  ::selection {
+    background: ${p.theme.colors.primary};
+    color: ${p.theme.colors.background};
+  }
 `;
 
 const h1 = styled.h1`

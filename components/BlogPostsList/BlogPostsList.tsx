@@ -30,7 +30,7 @@ const BlogPostsList: React.FC = () => {
       {blogPostListMocks.map((blogPost) => (
         <Link key={blogPost.title} href={blogPost.href} passHref>
           <BlogPostLink>
-            <Title>{blogPost.title}</Title>
+            <Typography.h4>{blogPost.title}</Typography.h4>
             <Description>{blogPost.description}</Description>
             <MetaData>
               {`${blogPost.date} · ${blogPost.timeToRead} ${translations.timeToReadUnit}`}
@@ -55,7 +55,7 @@ const BlogPostLink = styled.a`
   display: inline-block;
   margin-top: 24px;
 
-  &:first-child {
+  &:first-of-type {
     margin-top: 0;
   }
 
@@ -69,13 +69,8 @@ const BlogPostLink = styled.a`
   }
 `;
 
-const Title = styled(Typography.h4)`
-  transition: color 0.3s ease-in-out;
-`;
-
 const Description = styled(Typography.c1)`
   margin-top: 8px;
-  transition: color 0.3s ease-in-out;
   color: ${(p) => p.theme.colors.secondary};
 `;
 

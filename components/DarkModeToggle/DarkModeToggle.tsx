@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { useColorMode } from 'theme-ui';
+import React, { useEffect, useState } from 'react';
+import { useTheme } from 'next-themes';
 import styled from '@emotion/styled';
 import { Theme } from '@styles/theme/theme';
 import translations from '@translations/main.json';
@@ -7,21 +7,21 @@ import mediaQueries from '@styles/media';
 import { css, Theme as ThemeType } from '@emotion/react';
 
 export const DarkModeToggle: React.FC = () => {
-  const [colorMode, setColorMode] = useColorMode();
-  const isDark = colorMode === Theme.DARK;
+  const [mounted, setMounted] = useState(false);
+  const { resolvedTheme, setTheme } = useTheme();
+  const isDark = resolvedTheme === Theme.DARK;
 
   const toggleColorMode = (event: React.MouseEvent) => {
     event.preventDefault();
-    setColorMode(isDark ? Theme.LIGHT : Theme.DARK);
+    setTheme(isDark ? Theme.LIGHT : Theme.DARK);
   };
-
-  useEffect(() => {
-    parent.postMessage({ theme: colorMode }, '*');
-  }, [colorMode]);
 
   const accessibilityInfo = isDark
     ? translations.accessibility.darkModeToggle.dark
     : translations.accessibility.darkModeToggle.light;
+
+  useEffect(() => setMounted(true), []);
+  if (!mounted) return null;
 
   return (
     <IconWrapper
@@ -89,7 +89,6 @@ const SunMoon = styled.div<{ isDark: boolean }>`
     position: absolute;
     left: 0;
     top: 0;
-    transition: ${(p) => p.theme.colorModeTransition};
   }
   &:after {
     content: '';

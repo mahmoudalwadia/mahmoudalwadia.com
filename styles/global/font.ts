@@ -12,7 +12,7 @@ export const fontFace = css`
       url('/fonts/Inter/Inter-Regular.svg#Inter-Regular') format('svg');
     font-weight: normal;
     font-style: normal;
-    font-display: swap;
+    font-display: optional;
   }
 
   @font-face {
@@ -26,7 +26,7 @@ export const fontFace = css`
       url('/fonts/Inter/Inter-SemiBold.svg#Inter-SemiBold') format('svg');
     font-weight: 600;
     font-style: normal;
-    font-display: swap;
+    font-display: optional;
   }
 
   @font-face {
@@ -40,7 +40,7 @@ export const fontFace = css`
       url('/fonts/Inter/Inter-Light.svg#Inter-Light') format('svg');
     font-weight: 300;
     font-style: normal;
-    font-display: swap;
+    font-display: optional;
   }
 
   @font-face {
@@ -54,7 +54,7 @@ export const fontFace = css`
       url('/fonts/Inter/Inter-Medium.svg#Inter-Medium') format('svg');
     font-weight: 500;
     font-style: normal;
-    font-display: swap;
+    font-display: optional;
   }
   * {
     font-family: Inter, sans-serif;

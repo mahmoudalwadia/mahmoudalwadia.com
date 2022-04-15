@@ -9,16 +9,8 @@ declare module '@emotion/react' {
       accent: string;
       gradient: string;
       horizontalRule: string;
-      brightMagenta: string;
-      brightSkyBlue: string;
     };
-    colorModeTransition: string;
-    breakpoints: {
-      sm: string;
-      md: string;
-      lg: string;
-      xl: string;
-    };
+    breakpoints: string[];
     fonts: {
       inter: string;
     };

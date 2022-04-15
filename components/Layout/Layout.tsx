@@ -4,18 +4,15 @@ import Footer from '@components/Footer';
 import Header from '@components/Header';
 import styled from '@emotion/styled';
 import Container from './Container';
-import { useThemeUI } from 'theme-ui';
+import { useTheme } from '@emotion/react';
 
 const Layout: React.FC = ({ children }) => {
-  const { theme } = useThemeUI();
+  const theme = useTheme();
 
   return (
     <>
       <Head>
-        <meta
-          name="theme-color"
-          content={theme?.colors?.background as string}
-        />
+        <meta name="theme-color" content={theme.colors.background} />
       </Head>
       <AppWrapper>
         <Container>
@@ -31,7 +28,6 @@ const Layout: React.FC = ({ children }) => {
 const AppWrapper = styled.div`
   position: relative;
   background: ${(p) => p.theme.colors.background};
-  transition: ${(p) => p.theme.colorModeTransition};
   min-height: 100vh;
 `;
 

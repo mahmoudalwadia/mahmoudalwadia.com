@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import mediaQueries from '@styles/media';
-import theme from '@styles/theme';
 import { keyframes } from '@emotion/react';
 
 const Logo = () => {
@@ -10,19 +9,19 @@ const Logo = () => {
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 104.82 109.79">
         <defs>
           <linearGradient id="logo-gradient" x1="0%" y1="0%" x2="50%" y2="100%">
-            <stop offset="0%" stopColor={theme.colors.brightMagenta}>
+            <stop offset="0%" stopColor="#ff08e8">
               <animate
                 attributeName="stop-color"
-                values={`${theme.colors.brightMagenta}; ${theme.colors.brightSkyBlue}; ${theme.colors.brightMagenta}`}
+                values="#ff08e8; #02ccff; #ff08e8"
                 dur="6s"
                 repeatCount="indefinite"
               ></animate>
             </stop>
 
-            <stop offset="100%" stopColor={theme.colors.brightSkyBlue}>
+            <stop offset="100%" stopColor="#02ccff">
               <animate
                 attributeName="stop-color"
-                values={`${theme.colors.brightSkyBlue}; ${theme.colors.brightMagenta}; ${theme.colors.brightSkyBlue}`}
+                values="#02ccff; #ff08e8; #02ccff"
                 dur="6s"
                 repeatCount="indefinite"
               ></animate>
@@ -58,11 +57,6 @@ const Logo = () => {
             <SkinFace d="M79.74,37.44h.94A20.49,20.49,0,0,1,89,42.26c.78.75,8.37,8.28,6,18.18a18.6,18.6,0,0,1-8.52,11.27,19,19,0,0,1-19.89-.85c-4.21-2.94-6.55-7.55-6.85-9.75-.11-.8-.16-1.6-.17-1.9A19.27,19.27,0,0,1,61.4,50.5a15.24,15.24,0,0,1,15.31-7.29,13.68,13.68,0,0,1,8.9,5.21c.5.68,4.38,6.17,1.7,11.93-2.45,5.27-8.26,6.17-8.81,6.25-.89.12-6.88.85-10.23-3.69-2-2.73-2.85-7.07-.63-10.4,2.55-3.83,8.29-5,11.52-2.71,1.49,1.06,3.2,3.41,2.49,5.94a5.26,5.26,0,0,1-5.39,3.67c-1.57-.17-3.7-1.29-3.67-2.84a2.69,2.69,0,0,1,2.78-2.46,2.62,2.62,0,0,1,1.78,1.38,2.51,2.51,0,0,1,0,2,2.46,2.46,0,0,1-1.21,1,3.32,3.32,0,0,1-1.5.31" />
           </g>
         </g>
-        {/* <g id="Layer_5" data-name="Layer 5" >
-          <g id="Layer_5-2" data-name="Layer 5">
-            <SkinFace d="M79.74,37.44h.94A20.49,20.49,0,0,1,89,42.26c.78.75,8.37,8.28,6,18.18a18.6,18.6,0,0,1-8.52,11.27,19,19,0,0,1-19.89-.85c-4.21-2.94-6.55-7.55-6.85-9.75-.11-.8-.16-1.6-.17-1.9A19.27,19.27,0,0,1,61.4,50.5a15.24,15.24,0,0,1,15.31-7.29,13.68,13.68,0,0,1,8.9,5.21c.5.68,4.38,6.17,1.7,11.93-2.45,5.27-8.26,6.17-8.81,6.25-.89.12-6.88.85-10.23-3.69-2-2.73-2.85-7.07-.63-10.4,2.55-3.83,8.29-5,11.52-2.71,1.49,1.06,3.2,3.41,2.49,5.94a5.26,5.26,0,0,1-5.39,3.67c-1.57-.17-3.7-1.29-3.67-2.84a2.69,2.69,0,0,1,2.78-2.46,2.62,2.62,0,0,1,1.78,1.38,2.15,2.15,0,0,1-1.21,3.06,5.74,5.74,0,0,1-2.23.51,20,20,0,0,1-2.11.1l-8.78-.06c-.8,0-2.07,0-3.64,0" />
-          </g>
-        </g> */}
         <g id="Layer_6" data-name="Layer 6" className="face-edge">
           <SkinFace d="M59.1,59.07,43.28,59" />
         </g>
@@ -130,12 +124,10 @@ const LogoContainer = styled.div`
 
 const SkinPath = styled.path`
   fill: ${(p) => p.theme.colors.primary};
-  transition: ${(p) => p.theme.colorModeTransition};
 `;
 
 const SkinFace = styled.path`
   fill: none;
   stroke-miterlimit: 10;
   stroke: ${(p) => p.theme.colors.background};
-  transition: ${(p) => p.theme.colorModeTransition};
 `;

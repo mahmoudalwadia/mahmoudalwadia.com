@@ -3,14 +3,12 @@ import styled from '@emotion/styled';
 import mediaQueries from '@styles/media';
 import translations from '@translations/main.json';
 
-const Hero: React.FC = () => {
-  return (
-    <HeroWrapper>
-      <HeadLine>{translations.aboutMe.title}</HeadLine>
-      <Bio>{translations.aboutMe.bio}</Bio>
-    </HeroWrapper>
-  );
-};
+const Hero: React.FC = () => (
+  <HeroWrapper>
+    <HeadLine>{translations.aboutMe.title}</HeadLine>
+    <Bio>{translations.aboutMe.bio}</Bio>
+  </HeroWrapper>
+);
 
 const HeadLine = styled(Typography.h1)`
   letter-spacing: -0.06em;
