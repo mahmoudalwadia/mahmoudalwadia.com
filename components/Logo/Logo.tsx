@@ -1,11 +1,17 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import mediaQueries from '@styles/media';
-import { keyframes } from '@emotion/react';
+import { css, keyframes } from '@emotion/react';
 
-const Logo = () => {
+type Props = {
+  width?: number;
+  height?: number;
+  crazyMode?: boolean;
+};
+
+const Logo: React.FC<Props> = (props) => {
   return (
-    <LogoContainer>
+    <LogoContainer {...props}>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 104.82 109.79">
         <defs>
           <linearGradient id="logo-gradient" x1="0%" y1="0%" x2="50%" y2="100%">
@@ -97,29 +103,34 @@ const rotating = keyframes`
   }
 `;
 
-const LogoContainer = styled.div`
-  width: 55px;
-  height: 57.5px;
+const crazyModeStyles = () => css`
+  .skin {
+    fill: url('#logo-gradient');
+  }
+  .right-eye {
+    animation: ${rotating} 6s linear infinite;
+    transform-origin: 74% 51%;
+  }
+  .left-eye {
+    animation: ${rotating} 6s linear infinite;
+    transform-origin: 24% 51%;
+  }
+  .face-edge {
+    display: none;
+  }
+`;
+
+const LogoContainer = styled.div<Props>`
+  width: ${(p) => (p.width ? p.width : 55)}px;
+  height: ${(p) => (p.height ? p.height : 57.5)}px;
   ${mediaQueries.md} {
-    width: 78px;
-    height: 81.77px;
+    width: ${(p) => (p.width ? p.width : 78)}px;
+    height: ${(p) => (p.height ? p.height : 81.77)}px;
   }
   &:hover {
-    .skin {
-      fill: url('#logo-gradient');
-    }
-    .right-eye {
-      animation: ${rotating} 6s linear infinite;
-      transform-origin: 74% 51%;
-    }
-    .left-eye {
-      animation: ${rotating} 6s linear infinite;
-      transform-origin: 24% 51%;
-    }
-    .face-edge {
-      display: none;
-    }
+    ${crazyModeStyles}
   }
+  ${(p) => (p.crazyMode ? crazyModeStyles : '')}
 `;
 
 const SkinPath = styled.path`

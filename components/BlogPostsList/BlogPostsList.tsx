@@ -1,40 +1,34 @@
 import Typography from '@components/Typography';
 import styled from '@emotion/styled';
 import Link from 'next/link';
-import translations from '@translations/main.json';
 import mediaQueries from '@styles/media';
+import { BlogPost } from 'types/blogPost';
+import BlogPostMetaData from '@components/BlogPostMetaData';
+import { gTagEvent } from '@utils/gtag';
 
-// TODO: Remove once you fetch correct data
-const blogPostListMocks = [
-  {
-    title: 'More than 2 years in startup, does it worth it?',
-    description:
-      'Reflection on joining startup in their pre-seed round and working 2.5 years with them and making it number one platform for car subscription in Germany.',
-    href: '/blog/more-than-2-years-in-startup-does-it-worth-it',
-    date: 'April 1st, 2021',
-    timeToRead: 5,
-  },
-  {
-    title: 'How we should track customers journey',
-    description:
-      'Rethinking about how we should track customers in our apps to enable better adds spending by targeting the high potential customer.',
-    href: '/blog/how-we-should-track-customers-journey',
-    date: 'March 1st, 2021',
-    timeToRead: 11,
-  },
-];
+type Props = {
+  blogPosts: BlogPost[];
+};
 
-const BlogPostsList: React.FC = () => {
+const BlogPostsList: React.FC<Props> = ({ blogPosts }) => {
+  const handleClick = (title: string) => {
+    gTagEvent({
+      action: 'Blog post link click',
+      category: 'Link Click',
+      label: title,
+    });
+  };
   return (
     <BlogPostsListWrapper>
-      {blogPostListMocks.map((blogPost) => (
-        <Link key={blogPost.title} href={blogPost.href} passHref>
-          <BlogPostLink>
-            <Typography.h4>{blogPost.title}</Typography.h4>
-            <Description>{blogPost.description}</Description>
-            <MetaData>
-              {`${blogPost.date} · ${blogPost.timeToRead} ${translations.timeToReadUnit}`}
-            </MetaData>
+      {blogPosts.map(({ metadata, slug }) => (
+        <Link key={slug} href={`/blog/${slug}`} passHref>
+          <BlogPostLink onClick={() => handleClick(metadata.title)}>
+            <Title>{metadata.title}</Title>
+            <Description>{metadata.description}</Description>
+            <BlogPostMetaData
+              date={metadata.date}
+              timeToRead={metadata.readingTime.text}
+            />
           </BlogPostLink>
         </Link>
       ))}
@@ -45,7 +39,6 @@ const BlogPostsList: React.FC = () => {
 const BlogPostsListWrapper = styled.div`
   margin-top: 80px;
   max-width: 550px;
-
   ${mediaQueries.md} {
     margin-top: 120px;
   }
@@ -54,7 +47,6 @@ const BlogPostsListWrapper = styled.div`
 const BlogPostLink = styled.a`
   display: inline-block;
   margin-top: 24px;
-
   &:first-of-type {
     margin-top: 0;
   }
@@ -69,12 +61,12 @@ const BlogPostLink = styled.a`
   }
 `;
 
-const Description = styled(Typography.c1)`
-  margin-top: 8px;
-  color: ${(p) => p.theme.colors.secondary};
+const Title = styled(Typography.h4)`
+  margin: 0;
 `;
 
-const MetaData = styled(Typography.c2)`
+const Description = styled(Typography.c1)`
+  margin: 0;
   margin-top: 8px;
   color: ${(p) => p.theme.colors.secondary};
 `;

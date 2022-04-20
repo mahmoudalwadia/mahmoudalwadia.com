@@ -1,6 +1,5 @@
 import { css } from '@emotion/react';
 
-// TODO: Do we really need to normalize our styles
 const normalize = css`
   html {
     line-height: 1.15;

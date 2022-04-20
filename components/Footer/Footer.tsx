@@ -17,7 +17,7 @@ const Footer: React.FC = () => {
         >
           <FooterText>{translations.footer.Links.sourceCode}</FooterText>
         </FooterLink>
-        <Link href="/rss.xml" passHref>
+        <Link href="/feed.xml" passHref>
           <FooterLink
             target="_blank"
             aria-label={`${translations.linkTo} ${translations.footer.Links.rss}`}
@@ -41,6 +41,7 @@ const FooterLink = styled.a`
 `;
 
 const FooterText = styled(Typography.c2)`
+  margin: 0;
   transition: color 0.3s ease-in-out;
   color: ${(p) => p.theme.colors.secondary};
   &:hover {
@@ -48,7 +49,7 @@ const FooterText = styled(Typography.c2)`
   }
 `;
 
-const FooterWrapper = styled.div`
+const FooterWrapper = styled.footer`
   position: relative;
   display: flex;
   align-items: center;

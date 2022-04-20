@@ -1,5 +1,4 @@
 {
-  "timeToReadUnit": "min read",
   "linkTo": "Link to",
   "aboutMe": {
     "title": "Jack of all trades, master of delivery.",
@@ -22,5 +21,11 @@
       "dark": "Activate light mode",
       "light": "Activate dark mode"
     }
+  },
+  "404": {
+    "metaTitle": "Page Not Found!",
+    "title": "404",
+    "message": "What you looking for is not exist, you should back ",
+    "link": "HOME"
   }
 }

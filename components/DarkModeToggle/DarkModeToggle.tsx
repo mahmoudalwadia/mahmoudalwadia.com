@@ -5,6 +5,7 @@ import { Theme } from '@styles/theme/theme';
 import translations from '@translations/main.json';
 import mediaQueries from '@styles/media';
 import { css, Theme as ThemeType } from '@emotion/react';
+import { gTagEvent } from '@utils/gtag';
 
 export const DarkModeToggle: React.FC = () => {
   const [mounted, setMounted] = useState(false);
@@ -13,7 +14,14 @@ export const DarkModeToggle: React.FC = () => {
 
   const toggleColorMode = (event: React.MouseEvent) => {
     event.preventDefault();
-    setTheme(isDark ? Theme.LIGHT : Theme.DARK);
+    const newTheme = isDark ? Theme.LIGHT : Theme.DARK;
+    setTheme(newTheme);
+
+    gTagEvent({
+      action: 'Dark mode toggle change',
+      category: 'Theme Change',
+      label: newTheme,
+    });
   };
 
   const accessibilityInfo = isDark

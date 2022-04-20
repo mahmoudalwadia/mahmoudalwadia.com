@@ -18,8 +18,11 @@
     "paths": {
       "@styles/*": ["styles/*"],
       "@components/*": ["components/*"],
-      "@translations/*": ["data/translations/*"]
-    }
+      "@translations/*": ["data/translations/*"],
+      "@utils/*": ["utils/*"],
+      "@hooks/*": ["hooks/*"]
+    },
+    "types": ["@types/gtag.js"]
   },
   "include": ["**/*.ts", "**/*.tsx", "**/*.mdx", "next-env.d.ts"],
   "exclude": ["node_modules"]

@@ -12,6 +12,7 @@ const Hero: React.FC = () => (
 
 const HeadLine = styled(Typography.h1)`
   letter-spacing: -0.06em;
+  margin: 0;
   margin-bottom: 16px;
   max-width: 658px;
 `;
@@ -19,6 +20,7 @@ const HeadLine = styled(Typography.h1)`
 const Bio = styled(Typography.p)`
   max-width: 560px;
   font-weight: 300;
+  margin: 0;
   color: ${(p) => p.theme.colors.secondary};
 `;
 

@@ -24,12 +24,17 @@ const styles = css`
       #d9dbe0 100%
     );
     --horizontalRule: rgba(8, 8, 11, 0.15);
+    --quoteBorder: #e5e7eb;
+    --quoteColor: #616161;
+    --quoteBackgroundColor: #f1f1f1;
+    --bulletColor: #d1d5db;
+    --counterColor: #6b7280;
   }
 
   /* Dark theme */
   [data-theme='dark'] {
     --primary: #ffffff;
-    --secondary: #88888a;
+    --secondary: #73737d;
     --background: #111216;
     --accent: #e9daac;
     --gradient: linear-gradient(
@@ -38,6 +43,10 @@ const styles = css`
       rgba(66, 81, 98, 0.36) 100%
     );
     --horizontalRule: rgba(255, 255, 255, 0.15);
+    --quoteBorder: #333333;
+    --quoteColor: #cecece;
+    --quoteBackgroundColor: #222222;
+    --counterColor: #6b7280;
   }
 
   body {
@@ -57,6 +66,11 @@ const styles = css`
   button {
     text-decoration: none;
     cursor: pointer;
+  }
+
+  ::selection {
+    background: var(--primary);
+    color: var(--background);
   }
 `;
 

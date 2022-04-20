@@ -6,7 +6,7 @@ const config = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'http://mahmoudalwadia.com/',
+    url: 'https://mahmoudalwadia.com/',
     site_name: 'Mahmoud Alwadia',
     images: [
       {

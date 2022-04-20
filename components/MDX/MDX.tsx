@@ -1,24 +1,38 @@
-/**
- * V1:
- * 1. Typography.
- * 2. Lists (UL, OL)
- * 3. Code
- * 4. Blockquote
- * 5. Image
- * 6. Link
- * 7. 
- *  
- * 
- * 
- * 
- * 
- * 
- * V2:
- * 1. Playground
- * 
+import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
+import Image from 'next/image';
+import styled from '@emotion/styled';
+import Typography from '@components/Typography';
+import Anchor from '@components/Anchor';
+import Blockquote from '@components/Blockquote';
+import Quote from '@components/Quote';
+import Lists from '@components/Lists';
 
-*/
+const RoundedImage = styled(Image)`
+  border-radius: 8px;
+`;
 
-const MDX = () => <></>;
+const components = {
+  Image: RoundedImage,
+  a: Anchor,
+  blockquote: Blockquote,
+  h1: Typography.h1, // h1 reserved article title
+  h2: Typography.h2,
+  h3: Typography.h3,
+  h4: Typography.h4,
+  h5: Typography.h5,
+  h6: Typography.h6,
+  p: Typography.p,
+  ul: Lists.ul,
+  ol: Lists.ol,
+  Quote: Quote,
+};
+
+type Props = {
+  source: MDXRemoteSerializeResult<Record<string, unknown>>;
+};
+
+const MDX: React.FC<Props> = ({ source }) => {
+  return <MDXRemote {...source} components={components} />;
+};
 
 export default MDX;

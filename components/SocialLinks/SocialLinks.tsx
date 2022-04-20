@@ -54,6 +54,7 @@ const SocialLink = styled.a`
 const Label = styled(Typography.c2)`
   color: ${(p) => p.theme.colors.secondary};
   transition: color 0.3s ease-in-out;
+  margin: 0;
   &:hover {
     color: ${(p) => p.theme.colors.primary};
   }

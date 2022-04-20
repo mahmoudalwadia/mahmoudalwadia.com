@@ -9,6 +9,11 @@ declare module '@emotion/react' {
       accent: string;
       gradient: string;
       horizontalRule: string;
+      quoteBorder: string;
+      quoteColor: string;
+      quoteBackgroundColor: string;
+      bulletColor: string;
+      counterColor: string;
     };
     breakpoints: string[];
     fonts: {
