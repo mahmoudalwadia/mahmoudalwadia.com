@@ -1,4 +1,4 @@
-import { AppProps } from 'next/app';
+import type { AppProps } from 'next/app';
 import { ThemeProvider } from 'next-themes';
 import { ThemeProvider as EmotionThemeProvider } from '@emotion/react';
 import Head from '@components/Head';
@@ -6,7 +6,7 @@ import globalStyles from '@styles/global';
 import theme from '@styles/theme';
 import useGTag from '@hooks/useGTag';
 
-function MyApp({ Component, pageProps }: AppProps) {
+const App = ({ Component, pageProps }: AppProps) => {
   useGTag();
   return (
     <>
@@ -20,6 +20,6 @@ function MyApp({ Component, pageProps }: AppProps) {
       </ThemeProvider>
     </>
   );
-}
+};
 
-export default MyApp;
+export default App;

@@ -1,4 +1,4 @@
-import { GetStaticProps, NextPage } from 'next';
+import type { GetStaticProps, NextPage } from 'next';
 import { getBlogPostList } from '@utils/mdx';
 import HomeLayout from '@components/Layouts/HomeLayout';
 import Hero from '@components/Hero';

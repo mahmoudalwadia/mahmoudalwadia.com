@@ -1,6 +1,6 @@
+import type { GetStaticProps, NextPage } from 'next';
 import { BlogPostLayout } from '@components/Layouts';
 import { getBlogPost, postFilePaths } from '@utils/mdx';
-import { GetStaticProps, NextPage } from 'next';
 import { SerializedBlogPost } from 'types/blogPost';
 import BlogPost from '@components/BlogPost';
 import BlogPostSEO from '@components/SEO/BlogPostSeo';

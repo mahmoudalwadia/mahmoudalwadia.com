@@ -1,6 +1,7 @@
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 import Image from 'next/image';
 import styled from '@emotion/styled';
+import * as mdx from '@mdx-js/react';
 import Typography from '@components/Typography';
 import Anchor from '@components/Anchor';
 import Blockquote from '@components/Blockquote';
@@ -25,7 +26,7 @@ const components = {
   ul: Lists.ul,
   ol: Lists.ol,
   Quote: Quote,
-};
+} as React.ComponentProps<typeof mdx.MDXProvider>['components'];
 
 type Props = {
   source: MDXRemoteSerializeResult<Record<string, unknown>>;

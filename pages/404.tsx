@@ -1,3 +1,4 @@
+import type { NextPage } from 'next';
 import Logo from '@components/Logo';
 import Typography from '@components/Typography';
 import styled from '@emotion/styled';
@@ -5,7 +6,7 @@ import Link from 'next/link';
 import translations from '@translations/main.json';
 import Head from 'next/head';
 
-const NotFoundPage = () => {
+const NotFoundPage: NextPage = () => {
   return (
     <>
       <Head>
