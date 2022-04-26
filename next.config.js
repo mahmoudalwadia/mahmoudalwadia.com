@@ -11,7 +11,7 @@ module.exports = {
       {
         source: '/default-og-image.jpg',
         destination:
-          'https://mahmoud-personal-website-assets.s3.eu-central-1.amazonaws.com/mahmoudalwadia-default-og-image.jpg',
+          'https://mahmoud-personal-website-assets.s3.eu-central-1.amazonaws.com/og-image/mahmoudalwadia-default-og-image.jpg',
       },
     ];
   },

@@ -1,5 +1,5 @@
 /**
- * We Need this fill for sitemap/rss generation
+ * We Need this file for sitemap/rss generation
  *
  */
 import fs from 'fs';

@@ -7,12 +7,6 @@ const styles = css`
   ${fontFace},
 
   :root {
-    /**
-     * Thanks to Benjamin De Cock
-     * https://gist.github.com/bendc/ac03faac0bf2aee25b49e5fd260a727d
-     */
-    --ease-in-out-quad: cubic-bezier(0.455, 0.03, 0.515, 0.955);
-
     /* Light theme */
     --primary: #191919;
     --secondary: #73737d;
