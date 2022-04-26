@@ -12,6 +12,10 @@ const RoundedImage = styled(Image)`
   border-radius: 8px;
 `;
 
+const Hr = styled.hr`
+  border: 0.5px solid ${(p) => p.theme.colors.primary};
+`;
+
 const components = {
   Image: RoundedImage,
   a: Anchor,
@@ -26,6 +30,7 @@ const components = {
   ul: Lists.ul,
   ol: Lists.ol,
   Quote: Quote,
+  hr: Hr,
 } as React.ComponentProps<typeof mdx.MDXProvider>['components'];
 
 type Props = {
