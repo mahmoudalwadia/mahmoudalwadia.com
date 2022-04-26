@@ -2,7 +2,7 @@ import { DefaultSeo } from 'next-seo';
 
 const config = {
   title: 'Mahmoud Alwaida - Software Engineer',
-  description: 'I’m a full-stack engineer who loves to create great products.',
+  description: 'I’m a software engineer who likes to create great products.',
   openGraph: {
     type: 'website',
     locale: 'en_US',
