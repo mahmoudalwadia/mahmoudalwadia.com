@@ -40,8 +40,8 @@ const AboutMe = () => {
         {buttonLabel}
       </button>
       <div
-        className={`w-content rounded-lg max-w-[640px] opacity-0 transition-opacity duration-300 ease-in-out ${
-          show ? 'opacity-100' : ''
+        className={` w-content rounded-lg max-w-[640px] transition-opacity duration-300 ease-in-out overflow-hidden ${
+          show ? 'opacity-100 h-auto' : 'h-0 opacity-0'
         }`}
       >
         <p className="text-[16px] leading-[24px] max-w-[560px] text-dark-silver dark:text-quick-silver whitespace-pre-wrap">
