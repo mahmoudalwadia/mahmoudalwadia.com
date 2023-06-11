@@ -9,7 +9,7 @@ export const gTagPageView = (url: string) => {
 type GTagEventProps = {
   action: string;
   category: string;
-  label: string;
+  label?: string;
   value?: string;
 };
 
@@ -21,7 +21,7 @@ export const gTagEvent = ({
 }: GTagEventProps) => {
   window.gtag('event', action, {
     event_category: category,
-    event_label: label,
-    value: value,
+    event_label: label ?? '',
+    value: value ?? '',
   });
 };
