@@ -3,7 +3,10 @@ import { Inter } from 'next/font/google';
 import GTagLoader from './components/GTagLoader';
 import Analytics from './components/Analytics';
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+});
 
 export const metadata = {
   title: 'Create Next App',
@@ -16,10 +19,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={inter.className}>
       <GTagLoader />
       <Analytics />
-      <body className={inter.className}>{children}</body>
+      <body>{children}</body>
     </html>
   );
 }
